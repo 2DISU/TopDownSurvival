@@ -35,7 +35,7 @@ public class Game extends JPanel {
 	public static boolean exist = true;
 	public Beam beam = new Beam();
 	public static Game cs = new Game();
-
+//
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("[Game]");
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
