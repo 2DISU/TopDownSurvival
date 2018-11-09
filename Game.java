@@ -20,12 +20,14 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 public class Game extends JPanel {
 
@@ -37,6 +39,8 @@ public class Game extends JPanel {
 	public static Game cs = new Game();
 //
 	public static void main(String[] args) {
+		Cursor cursor = new Cursor(Cursor.CROSSHAIR_CURSOR);
+		 
 		JFrame frame = new JFrame("[Game]");
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 //		frame.setCursor(frame.getToolkit().createCustomCursor(
@@ -49,13 +53,18 @@ public class Game extends JPanel {
 		frame.setFocusable(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.repaint();
+		frame.setCursor(cursor);
 		frame.addMouseListener(new MouseListener() {
-
+		
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
-				ufo.x = ufo.w /2 + e.getXOnScreen() ;
-				ufo.y = ufo.h / 2 + e.getYOnScreen();
+				if (SwingUtilities.isRightMouseButton(e))
+				{
+					ufo.x = ufo.w /2 + e.getXOnScreen()-20;
+					ufo.y = ufo.h / 2 + e.getYOnScreen()-40;
+				}
+				
 			}
 
 			@Override
@@ -73,8 +82,11 @@ public class Game extends JPanel {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				// TODO Auto-generated method stub
-				ufo.x = ufo.w /2 + e.getXOnScreen() ;
-				ufo.y = ufo.h / 2 + e.getYOnScreen();
+				if (SwingUtilities.isRightMouseButton(e))
+				{
+					ufo.x = ufo.w /2 + e.getXOnScreen()-20;
+					ufo.y = ufo.h / 2 + e.getYOnScreen()-40;
+				}
 			}
 
 			@Override
