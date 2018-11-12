@@ -26,7 +26,7 @@ public class UFO {
 		x+=xa;
 		y+=ya;
 		g.setColor(UFO2);
-		 System.out.println("(" + MouseInfo.getPointerInfo().getLocation().x + ", " + MouseInfo.getPointerInfo().getLocation().y + ")");
+		//System.out.println("(" + MouseInfo.getPointerInfo().getLocation().x + ", " + MouseInfo.getPointerInfo().getLocation().y + ")");
 		g.drawImage(img, x, y,w,h, null);
 		//g.fillOval(x, y, w, h);
 
