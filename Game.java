@@ -1,5 +1,5 @@
 
-//  Game.java Dylan Mills 2018/11/7
+//  Game.java Dylan Mills/Daniel Wallace/Shu Sun 2018/11/7
 //TOP DOWN SURVIVAL GAME.
 //WASD MOVE.
 //CLICK WHERE TO SHOOT.
@@ -32,7 +32,7 @@ import javax.swing.SwingUtilities;
 public class Game extends JPanel {
 
 	public static Color Black = new Color(10, 10, 10);
-	public int x = 1920 / 2 - 10, y = 1080 / 2 - 9, w = 20, h = 18, xa = 1, ya = 1;
+	public int x = 1920 / 2 - 10, y = 1080 / 2 - 9, w = 20, h = 20, xa = 1, ya = 1;
 	public static UFO ufo = new UFO();
 	public static boolean exist = true;
 	public Beam beam = new Beam();
@@ -61,8 +61,8 @@ public class Game extends JPanel {
 				// TODO Auto-generated method stub
 				if (SwingUtilities.isRightMouseButton(e))
 				{
-					ufo.x = ufo.w /2 + e.getXOnScreen()-20;
-					ufo.y = ufo.h / 2 + e.getYOnScreen()-40;
+					ufo.x = ufo.w /2 + e.getXOnScreen()-21;
+					ufo.y = ufo.h / 2 + e.getYOnScreen()-42;
 				}
 				
 			}
@@ -84,8 +84,8 @@ public class Game extends JPanel {
 				// TODO Auto-generated method stub
 				if (SwingUtilities.isRightMouseButton(e))
 				{
-					ufo.x = ufo.w /2 + e.getXOnScreen()-20;
-					ufo.y = ufo.h / 2 + e.getYOnScreen()-40;
+					ufo.x = ufo.w /2 + e.getXOnScreen()-21;
+					ufo.y = ufo.h / 2 + e.getYOnScreen()-42;
 				}
 			}
 

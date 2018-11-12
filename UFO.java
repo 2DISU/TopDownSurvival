@@ -6,7 +6,7 @@ public class UFO {
 	Color UFO1 = new Color(10, 10, 10);
 	Color UFO2 = new Color(30, 120, 30);
 	Game C1;
-	public static int w = 20, h = 18, x=0, y=0;
+	public static int w = 20, h = 20, x=0, y=0;
 	public static int xa = 0, ya = 0;
 
 	public UFO() {
