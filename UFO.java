@@ -1,5 +1,8 @@
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import javax.imageio.*;
+import java.io.*;
 
 public class UFO {
 
@@ -8,9 +11,13 @@ public class UFO {
 	Game C1;
 	public static int w = 20, h = 20, x=0, y=0;
 	public static int xa = 0, ya = 0;
-
+	public BufferedImage img = null;
 	public UFO() {
-
+		try {
+			img = ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival1/assets/person.png"));
+		} catch (IOException e) {
+			System.out.println("No Image");
+		}
 	}
 
 	static Game cs = new Game();
@@ -19,7 +26,9 @@ public class UFO {
 		x+=xa;
 		y+=ya;
 		g.setColor(UFO2);
-		g.fillOval(x, y, w, h);
+		
+		g.drawImage(img, x, y,w,h, null);
+		//g.fillOval(x, y, w, h);
 
 	}
 
