@@ -3,7 +3,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import javax.imageio.*;
 import java.io.*;
-
+import java.awt.MouseInfo;
 public class UFO {
 
 	Color UFO1 = new Color(10, 10, 10);
@@ -26,7 +26,7 @@ public class UFO {
 		x+=xa;
 		y+=ya;
 		g.setColor(UFO2);
-		
+		 System.out.println("(" + MouseInfo.getPointerInfo().getLocation().x + ", " + MouseInfo.getPointerInfo().getLocation().y + ")");
 		g.drawImage(img, x, y,w,h, null);
 		//g.fillOval(x, y, w, h);
 
