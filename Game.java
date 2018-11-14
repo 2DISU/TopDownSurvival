@@ -61,8 +61,8 @@ public class Game extends JPanel {
 				// TODO Auto-generated method stub
 				if (SwingUtilities.isRightMouseButton(e))
 				{
-					ufo.x = ufo.w /2 + e.getXOnScreen()-21;
-					ufo.y = ufo.h / 2 + e.getYOnScreen()-42;
+					ufo.x =  e.getXOnScreen()-ufo.w /2 ;
+					ufo.y = e.getYOnScreen()-ufo.h ;
 				}
 				
 			}
@@ -84,8 +84,8 @@ public class Game extends JPanel {
 				// TODO Auto-generated method stub
 				if (SwingUtilities.isRightMouseButton(e))
 				{
-					ufo.x = ufo.w /2 + e.getXOnScreen()-21;
-					ufo.y = ufo.h / 2 + e.getYOnScreen()-42;
+					ufo.x =  e.getXOnScreen()-ufo.w /2 ;
+					ufo.y = e.getYOnScreen()-ufo.h ;
 				}
 			}
 
