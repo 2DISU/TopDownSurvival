@@ -33,7 +33,7 @@ public class Game extends JPanel {
 
 	public static Color Black = new Color(10, 10, 10);
 	public int x = 1920 / 2 - 10, y = 1080 / 2 - 9, w = 20, h = 20, xa = 1, ya = 1;
-	public static UFO ufo = new UFO();
+	public static Player player = new Player();
 	public static boolean exist = true;
 	public Beam beam = new Beam();
 	public static Game cs = new Game();
@@ -61,8 +61,8 @@ public class Game extends JPanel {
 				// TODO Auto-generated method stub
 				if (SwingUtilities.isRightMouseButton(e))
 				{
-					ufo.x =  e.getXOnScreen()-ufo.w /2 ;
-					ufo.y = e.getYOnScreen()-ufo.h ;
+					player.x =  e.getXOnScreen()-player.w /2 ;
+					player.y = e.getYOnScreen()-player.h ;
 				}
 				
 			}
@@ -84,8 +84,8 @@ public class Game extends JPanel {
 				// TODO Auto-generated method stub
 				if (SwingUtilities.isRightMouseButton(e))
 				{
-					ufo.x =  e.getXOnScreen()-ufo.w /2 ;
-					ufo.y = e.getYOnScreen()-ufo.h ;
+					player.x =  e.getXOnScreen()-player.w /2 ;
+					player.y = e.getYOnScreen()-player.h ;
 				}
 			}
 
@@ -104,25 +104,25 @@ public class Game extends JPanel {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_S) {
-					if (ufo.ya <= 0) {
-						ufo.ya += 3;
+					if (player.ya <= 0) {
+						player.ya += 3;
 					}
 				}
 				if (e.getKeyCode() == KeyEvent.VK_W) {
-					if (ufo.ya >= 0) {
-						ufo.ya += -3;
+					if (player.ya >= 0) {
+						player.ya += -3;
 					}
 				}
 
 				if (e.getKeyCode() == KeyEvent.VK_D) {
-					if (ufo.xa <= 0) {
-						ufo.xa += 3;
+					if (player.xa <= 0) {
+						player.xa += 3;
 					}
 				}
 
 				if (e.getKeyCode() == KeyEvent.VK_A) {
-					if (ufo.xa >= 0) {
-						ufo.xa += -3;
+					if (player.xa >= 0) {
+						player.xa += -3;
 					}
 				}
 
@@ -142,26 +142,26 @@ public class Game extends JPanel {
 			@Override
 			public void keyReleased(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_S) {
-					if (ufo.ya >= 0) {
-						ufo.ya -= 3;
+					if (player.ya >= 0) {
+						player.ya -= 3;
 					}
 				}
 				if (e.getKeyCode() == KeyEvent.VK_W) {
-					if (ufo.ya <= 0) {
-						ufo.ya -= -3;
+					if (player.ya <= 0) {
+						player.ya -= -3;
 					}
 				}
 
 				if (e.getKeyCode() == KeyEvent.VK_D) {
-					if (ufo.xa >= 0) {
+					if (player.xa >= 0) {
 
-						ufo.xa -= 3;
+						player.xa -= 3;
 					}
 				}
 
 				if (e.getKeyCode() == KeyEvent.VK_A) {
-					if (ufo.xa <= 0) {
-						ufo.xa -= -3;
+					if (player.xa <= 0) {
+						player.xa -= -3;
 					}
 				}
 
@@ -188,8 +188,8 @@ public class Game extends JPanel {
 		G.setColor(Black);
 		G.fillRect(0, 0, 1920, 1080);
 
-		beam.paint(G, UFO.x, UFO.y);
-		ufo.paint(G);
+		beam.paint(G, player.x, player.y);
+		player.paint(G);
 
 	}
 
