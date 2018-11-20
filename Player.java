@@ -9,13 +9,13 @@ public class Player {
 
 	
 	Game C1;
-	public static int w = 100, h = 100, x=0, y=0;
+	public static int w = 150, h = 150, x=0, y=0;
 	public static int xa = 0, ya = 0;
 	public BufferedImage img = null;
 	AffineTransform At= new AffineTransform();
 	public Player() {
 		try {
-			img = ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
+			img = ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/meter griffin.png"));
 		} catch (IOException e) {
 			System.out.println("No Image");
 		}
@@ -28,13 +28,13 @@ public class Player {
 		x+=xa;
 		y+=ya;
 		
-		System.out.println("(" + MouseInfo.getPointerInfo().getLocation().x + ", " + MouseInfo.getPointerInfo().getLocation().y + ")");
+		//System.out.println("(" + MouseInfo.getPointerInfo().getLocation().x + ", " + MouseInfo.getPointerInfo().getLocation().y + ")");
 		//https://docs.oracle.com/javase/7/docs/api/java/awt/geom/AffineTransform.html
-		At.rotate(Math.toRadians(15), w / 2,
-			        h / 2);
+		//At.rotate(Math.toRadians(15), w / 2,
+			//        h / 2);
 
 		
-		g.drawImage(img,At,w,h, null);
+		g.drawImage(img,x,y,h,w, null);
 		//g.fillOval(x, y, w, h);
 
 	}
