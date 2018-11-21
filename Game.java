@@ -24,7 +24,7 @@ import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
-
+import java.time.Duration;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -35,9 +35,10 @@ public class Game extends JPanel {
 	public int x = 1920 / 2 - 10, y = 1080 / 2 - 9, w = 20, h = 20, xa = 1, ya = 1;
 	public static Player player = new Player();
 	public static boolean exist = true;
+	public background Back=new background();
 	public Beam beam = new Beam();
 	public static Game cs = new Game();
-//
+	public int dashCooldown;
 	public static void main(String[] args) {
 		Cursor cursor = new Cursor(Cursor.CROSSHAIR_CURSOR);
 		 
@@ -52,6 +53,7 @@ public class Game extends JPanel {
 		frame.add(cs);
 		frame.setFocusable(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//frame.setResizable(false);
 		frame.repaint();
 		frame.setCursor(cursor);
 		frame.addMouseListener(new MouseListener() {
@@ -185,9 +187,9 @@ public class Game extends JPanel {
 	@Override
 	public void paint(Graphics g) {
 		Graphics2D G = (Graphics2D) g;
-		G.setColor(Black);
+		G.setColor(new Color(150, 190, 255));
 		G.fillRect(0, 0, 1920, 1080);
-
+		Back.paint(G);
 		beam.paint(G, player.x, player.y);
 		player.paint(G);
 
