@@ -187,7 +187,7 @@ public class Game extends JPanel {
 	@Override
 	public void paint(Graphics g) {
 		Graphics2D G = (Graphics2D) g;
-		G.setColor(new Color(150, 190, 255));
+		G.setColor(new Color(53, 72, 104));
 		G.fillRect(0, 0, 1920, 1080);
 		Back.paint(G);
 		beam.paint(G, player.x, player.y);

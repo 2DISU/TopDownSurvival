@@ -8,15 +8,15 @@ import javax.imageio.ImageIO;
 
 
 public class background {
-	public BufferedImage[] tile =new BufferedImage[17];
+	public BufferedImage[] tile =new BufferedImage[18];
 	public int xOffset=-85;
 	public int yOffset=-50;
-	public int h=256;//tile height
+	public int l=256;//tile length
 	public background()
 	{
 		try {
-			for (int i=0;i<=tile.length;i++) {
-			tile[i] = ImageIO.read(new File("\\\\SS08\\S231 Students$\\S201060117\\Documents\\GitHub\\TopDownSurvival\\assets\\desert_top_down\\images\\Tile_"+i+".png"));
+			for (int i=1;i<=tile.length-1;i++) {
+			tile[i] = ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/desert_top_down/images/Tile_"+i+".png"));
 			}
 		} catch (IOException e) {
 			System.out.println("No Image");
@@ -25,10 +25,23 @@ public class background {
 	public void paint(Graphics2D g)
 	{	
 		
-		g.drawImage(tile[0],0+xOffset,0+yOffset, null);
-		g.drawImage(tile[3],0+xOffset,h+yOffset, null);
-		g.drawImage(tile[3],0+xOffset,2*h+yOffset, null);
-		g.drawImage(tile[6],0+xOffset,3*h+yOffset, null);
-		//g.drawImage();
+		g.drawImage(tile[1],xOffset,0+yOffset,l,l, null);
+		g.drawImage(tile[4],xOffset,l+yOffset,l,l, null);
+		g.drawImage(tile[4],xOffset,2*l+yOffset,l,l, null);
+		g.drawImage(tile[7],xOffset,3*l+yOffset,l,l, null);
+		g.drawImage(tile[8],l+xOffset,3*l+yOffset,l,l, null);
+		g.drawImage(tile[8],2*l+xOffset,3*l+yOffset,l,l, null);
+		g.drawImage(tile[8],3*l+xOffset,3*l+yOffset,l,l, null);
+		g.drawImage(tile[9],4*l+xOffset,3*l+yOffset,l,l, null);
+		g.drawImage(tile[10],4*l+xOffset,2*l+yOffset,l,l, null);
+		g.drawImage(tile[12],4*l+xOffset,l+yOffset,l,l, null);
+		g.drawImage(tile[8],5*l+xOffset,2*l+yOffset,l,l, null);
+		g.drawImage(tile[2],5*l+xOffset,l+yOffset,l,l, null);
+		g.drawImage(tile[3],4*l+xOffset,yOffset,l,l, null);
+		g.drawImage(tile[2],3*l+xOffset,yOffset,l,l, null);
+		g.drawImage(tile[2],2*l+xOffset,yOffset,l,l, null);
+		g.drawImage(tile[2],l+xOffset,yOffset,l,l, null);
+		g.drawImage(tile[5],l+xOffset,2*l+yOffset,l,l, null);
+		
 	}
 }
