@@ -62,39 +62,27 @@ public class Game extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
 				if (SwingUtilities.isRightMouseButton(e))
-				{
-					player.x =  e.getXOnScreen()-player.w /2 ;
-					player.y = e.getYOnScreen()-player.h ;
-				}
-				
+				{	player.x =  e.getXOnScreen()-player.w /2 ;
+					player.y = e.getYOnScreen()-player.h ;}
 			}
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-
 			}
 
 			@Override
 			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
 				if (SwingUtilities.isRightMouseButton(e))
-				{
-					player.x =  e.getXOnScreen()-player.w /2 ;
-					player.y = e.getYOnScreen()-player.h ;
-				}
+				{	player.x =  e.getXOnScreen()-player.w /2 ;
+					player.y = e.getYOnScreen()-player.h ;}
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-
 			}
 		});
 
@@ -137,11 +125,8 @@ public class Game extends JPanel {
 
 				if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
 					System.exit(1);
-				}
+				}}
 
-			}
-
-			@Override
 			public void keyReleased(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_S) {
 					if (player.ya >= 0) {
@@ -163,14 +148,11 @@ public class Game extends JPanel {
 
 				if (e.getKeyCode() == KeyEvent.VK_A) {
 					if (player.xa <= 0) {
-						player.xa -= -3;
-					}
+						player.xa -= -3;}
 				}
-
 				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 					Beam.velocity = -2;
 				}
-
 			}
 		});
 
