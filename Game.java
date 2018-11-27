@@ -43,7 +43,8 @@ public class Game extends JPanel {
 		Cursor cursor = new Cursor(Cursor.CROSSHAIR_CURSOR);
 		 
 		JFrame frame = new JFrame("[Game]");
-		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		frame.setSize(1300, 980);
+		
 //		frame.setCursor(frame.getToolkit().createCustomCursor(
 //	            new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(0, 0),
 //	            "null"));
@@ -53,7 +54,7 @@ public class Game extends JPanel {
 		frame.add(cs);
 		frame.setFocusable(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//frame.setResizable(false);
+		frame.setResizable(false);
 		frame.repaint();
 		frame.setCursor(cursor);
 		frame.addMouseListener(new MouseListener() {
