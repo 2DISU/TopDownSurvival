@@ -36,6 +36,7 @@ public class Game extends JPanel {
 	public static Player player = new Player();
 	public static boolean exist = true;
 	public background Back=new background();
+	public GUI ui = new GUI();
 	public Beam beam = new Beam();
 	public static Game cs = new Game();
 	public int dashCooldown;
@@ -175,6 +176,7 @@ public class Game extends JPanel {
 		Back.paint(G);
 		beam.paint(G, player.x, player.y);
 		player.paint(G);
+		ui.paint(G);
 
 	}
 
