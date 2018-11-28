@@ -28,7 +28,8 @@ import java.time.Duration;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-
+import java.util.Date;
+import java.util.Timer;
 public class Game extends JPanel {
 
 	public static Color Black = new Color(10, 10, 10);
@@ -37,9 +38,16 @@ public class Game extends JPanel {
 	public static boolean exist = true;
 	public background Back=new background();
 	public GUI ui = new GUI();
-	public Beam beam = new Beam();
+	public Bomb bomb = new Bomb();
 	public static Game cs = new Game();
 	public int dashCooldown;
+	 
+	public static long 	 BombDroppedTime;
+	public static long elapsedTime;
+	Timer bombTimer = new Timer();
+	public static boolean bombActive = false;
+	public static int bombX;
+	public static int bombY;
 	public static void main(String[] args) {
 		Cursor cursor = new Cursor(Cursor.CROSSHAIR_CURSOR);
 		 
@@ -119,10 +127,16 @@ public class Game extends JPanel {
 				}
 
 				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-					Beam.velocity = 3;
-					if (Beam.beamheight < 0) {
-						Beam.beamheight = Beam.velocity = 0;
-					}
+					 BombDroppedTime = System.currentTimeMillis();
+					 elapsedTime = 0;
+
+				
+					    
+					
+					
+					bombActive = true;
+					bombX = player.x;
+					bombY = player.y;
 				}
 
 				if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
@@ -159,7 +173,7 @@ public class Game extends JPanel {
 		});
 
 		while (true) {
-
+			elapsedTime = System.currentTimeMillis() - BombDroppedTime;
 			frame.repaint();
 			try {
 				Thread.sleep(5);
@@ -170,11 +184,15 @@ public class Game extends JPanel {
 
 	@Override
 	public void paint(Graphics g) {
+		if (elapsedTime >1*1000)//1=seconds 
+			bombActive = false;
+		
 		Graphics2D G = (Graphics2D) g;
 		G.setColor(new Color(53, 72, 104));
 		G.fillRect(0, 0, 1920, 1080);
 		Back.paint(G);
-		beam.paint(G, player.x, player.y);
+		if (bombActive) 
+			bomb.paint(G, bombX, bombY);
 		player.paint(G);
 		ui.paint(G);
 
