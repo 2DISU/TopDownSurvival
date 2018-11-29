@@ -23,6 +23,7 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.MouseInfo;
 import java.awt.Point;
 import java.time.Duration;
 import javax.swing.JFrame;
@@ -64,16 +65,17 @@ public class Game extends JPanel {
 		frame.setFocusable(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
-		frame.repaint();
 		frame.setCursor(cursor);
+		frame.repaint();
+		
 		frame.addMouseListener(new MouseListener() {
 		
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
 				if (SwingUtilities.isRightMouseButton(e))
-				{	player.x =  e.getXOnScreen()-player.w /2 ;
-					player.y = e.getYOnScreen()-player.h ;}
+				{	player.x =  e.getXOnScreen()-player.l /2 ;
+					player.y = e.getYOnScreen()-player.l/2 ;}
 			}
 
 			@Override
@@ -87,8 +89,8 @@ public class Game extends JPanel {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				if (SwingUtilities.isRightMouseButton(e))
-				{	player.x =  e.getXOnScreen()-player.w /2 ;
-					player.y = e.getYOnScreen()-player.h ;}
+				{	player.x =  e.getXOnScreen()-player.l /2 ;
+					player.y = e.getYOnScreen()-player.l/2 ;}
 			}
 
 			@Override
@@ -129,11 +131,6 @@ public class Game extends JPanel {
 				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 					 BombDroppedTime = System.currentTimeMillis();
 					 elapsedTime = 0;
-
-				
-					    
-					
-					
 					bombActive = true;
 					bombX = player.x;
 					bombY = player.y;
@@ -184,16 +181,18 @@ public class Game extends JPanel {
 
 	@Override
 	public void paint(Graphics g) {
-		if (elapsedTime >1*1000)//1=seconds 
+		if (elapsedTime >1*1000)//1 number of seconds 
 			bombActive = false;
 		
 		Graphics2D G = (Graphics2D) g;
 		G.setColor(new Color(53, 72, 104));
 		G.fillRect(0, 0, 1920, 1080);
+
 		Back.paint(G);
 		if (bombActive) 
 			bomb.paint(G, bombX, bombY);
 		player.paint(G);
+		
 		ui.paint(G);
 
 	}

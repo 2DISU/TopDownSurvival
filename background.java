@@ -16,7 +16,8 @@ public class background {
 	{
 		try {
 			for (int i=1;i<=tile.length-1;i++) {
-			tile[i] = ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/desert_top_down/images/Tile_"+i+".png"));
+				tile[i] = ImageIO.read(new File("C:/Users/Daniel/Documents/GitHub/TopDownSurvival/assets/desert_top_down/images/Tile_"+i+".png"));
+			//tile[i] = ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/desert_top_down/images/Tile_"+i+".png"));
 			}
 		} catch (IOException e) {
 			System.out.println("No Image");

@@ -10,7 +10,9 @@ public class GUI {
 public GUI()
 {
 	try {
-		UI=ImageIO.read(new File("U:\\Documents\\GitHub\\TopDownSurvival\\assets\\ui.png"));
+		//UI=ImageIO.read(new File("U:\\Documents\\GitHub\\TopDownSurvival\\assets\\ui.png"));
+		UI=ImageIO.read(new File("C:\\Users\\Daniel\\Documents\\GitHub\\TopDownSurvival\\assets\\ui.png"));
+		
 	} catch (IOException e) {
 	
 	}

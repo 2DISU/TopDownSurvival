@@ -12,7 +12,9 @@ public class Bomb {
 
 	public Bomb() {
 	try {
-			img = ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/bomb.png"));
+			//img = ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/bomb.png"));
+		
+		img = ImageIO.read(new File("C:/Users/Daniel/Documents/GitHub/TopDownSurvival/assets/bomb.png"));
 		} catch (IOException e) {
 			System.out.println("No Image");
 		}

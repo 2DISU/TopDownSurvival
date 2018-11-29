@@ -9,32 +9,40 @@ public class Player {
 
 	
 	Game C1;
-	public static int w = 150, h = 150, x=0, y=0;
+	public static int l = 150, x=0, y=0;
 	public static int xa = 0, ya = 0;
 	public BufferedImage img = null;
+	public int mX,mY; 
+
 	AffineTransform At= new AffineTransform();
 	public Player() {
+	
 		try {
-			img = ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
+			//img = ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
+			img = ImageIO.read(new File("C:/Users/Daniel/Documents/GitHub/TopDownSurvival/assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
 		} catch (IOException e) {
 			System.out.println("No Image");
 		}
 		
+		
 	}
-
+	
+	
 
 	public void paint(Graphics2D g) {
 		
 		x+=xa;
 		y+=ya;
+		mX=MouseInfo.getPointerInfo().getLocation().x;
+		mY=MouseInfo.getPointerInfo().getLocation().y;
+		float xD = mX-x;
+		float yD = mY-y;
+		double rAngle = Math.toDegrees(Math.atan2(xD,yD));
 		
-		//System.out.println("(" + MouseInfo.getPointerInfo().getLocation().x + ", " + MouseInfo.getPointerInfo().getLocation().y + ")");
-		//https://docs.oracle.com/javase/7/docs/api/java/awt/geom/AffineTransform.html
-		//At.rotate(Math.toRadians(15), w / 2,
-			//        h / 2);
-
-		
-		g.drawImage(img,x,y,h,w, null);
+		At.rotate(rAngle);
+		At.setToTranslation(x,y);
+		g.drawPolygon(new int[] {x+(l/2),mX, mX}, new int[] {y+(l/2), mY, y+(l/2)}, 3);
+		g.drawImage(img,At, null);
 		//g.fillOval(x, y, w, h);
 
 	}
