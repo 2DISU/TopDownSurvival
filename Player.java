@@ -39,7 +39,7 @@ public class Player {
 		float yD = mY-y;
 		double rAngle = Math.toDegrees(Math.atan2(xD,yD));
 		
-		At.rotate(1,x+l/2,y+l/2);
+		At.rotate(rAngle,x+l/2,y+l/2);
 		//At.setToTranslation(x,y);
 		//g.drawPolygon(new int[] {x+(l/2),mX, mX}, new int[] {y+(l/2), mY, y+(l/2)}, 3);
 		g.drawImage(img,At, null);
