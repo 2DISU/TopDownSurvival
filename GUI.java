@@ -12,7 +12,6 @@ public GUI()
 	try {
 		UI=ImageIO.read(new File("U:\\Documents\\GitHub\\TopDownSurvival\\assets\\ui.png"));
 		
-		
 	} catch (IOException e) {
 	try {
 		UI=ImageIO.read(new File("C:\\Documents\\GitHub\\TopDownSurvival\\assets\\ui.png"));
