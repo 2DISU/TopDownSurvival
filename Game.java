@@ -16,6 +16,8 @@
 
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -26,6 +28,8 @@ import java.awt.Graphics2D;
 import java.awt.MouseInfo;
 import java.awt.Point;
 import java.time.Duration;
+
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -42,13 +46,23 @@ public class Game extends JPanel {
 	public Bomb bomb = new Bomb();
 	public static Game cs = new Game();
 	public int dashCooldown;
-	 
+	public BufferedImage img = null;
 	public static long 	 BombDroppedTime;
 	public static long elapsedTime;
 	Timer bombTimer = new Timer();
 	public static boolean bombActive = false;
 	public static int bombX;
 	public static int bombY;
+	public Game()
+	{
+		try {
+			img = ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/sans.png"));
+			//img = ImageIO.read(new File("C:/Users/Daniel/Documents/GitHub/TopDownSurvival/assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
+		} catch (IOException e) {
+			System.out.println("No Image");
+		}
+		
+	}
 	public static void main(String[] args) {
 		Cursor cursor = new Cursor(Cursor.CROSSHAIR_CURSOR);
 		 
@@ -173,7 +187,7 @@ public class Game extends JPanel {
 			elapsedTime = System.currentTimeMillis() - BombDroppedTime;
 			frame.repaint();
 			try {
-				Thread.sleep(5);
+				Thread.sleep(8);
 			} catch (InterruptedException e) {
 			}
 		}
@@ -181,13 +195,14 @@ public class Game extends JPanel {
 
 	@Override
 	public void paint(Graphics g) {
+		
 		if (elapsedTime >1*1000)//1 number of seconds 
 			bombActive = false;
 		
 		Graphics2D G = (Graphics2D) g;
 		G.setColor(new Color(53, 72, 104));
 		G.fillRect(0, 0, 1920, 1080);
-
+		//g.drawImage(img,1920/2,0,null);
 		Back.paint(G);
 		if (bombActive) 
 			bomb.paint(G, bombX, bombY);

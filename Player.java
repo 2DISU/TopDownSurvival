@@ -18,8 +18,8 @@ public class Player {
 	public Player() {
 	
 		try {
-			//img = ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
-			img = ImageIO.read(new File("C:/Users/Daniel/Documents/GitHub/TopDownSurvival/assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
+			img = ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
+			//img = ImageIO.read(new File("C:/Users/Daniel/Documents/GitHub/TopDownSurvival/assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
 		} catch (IOException e) {
 			System.out.println("No Image");
 		}
@@ -39,9 +39,9 @@ public class Player {
 		float yD = mY-y;
 		double rAngle = Math.toDegrees(Math.atan2(xD,yD));
 		
-		At.rotate(rAngle);
+		//At.rotate(rAngle,x+l/2,y+l/2);
 		At.setToTranslation(x,y);
-		g.drawPolygon(new int[] {x+(l/2),mX, mX}, new int[] {y+(l/2), mY, y+(l/2)}, 3);
+		//g.drawPolygon(new int[] {x+(l/2),mX, mX}, new int[] {y+(l/2), mY, y+(l/2)}, 3);
 		g.drawImage(img,At, null);
 		//g.fillOval(x, y, w, h);
 
