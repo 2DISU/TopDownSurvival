@@ -11,14 +11,20 @@ public class Bomb {
 	Game C1;
 
 	public Bomb() {
-	try {
+	
 			//img = ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/bomb.png"));
 		
-		img = ImageIO.read(new File("C:/Users/Daniel/Documents/GitHub/TopDownSurvival/assets/bomb.png"));
+		try {
+			img=ImageIO.read(new File("U:\\Documents\\GitHub\\TopDownSurvival\\assets\\bomb.png"));
+			
+			
 		} catch (IOException e) {
-			System.out.println("No Image");
+		try {
+			img=ImageIO.read(new File("C:\\Documents\\GitHub\\TopDownSurvival\\assets\\bomb.png"));
+			
+		}catch(IOException h) {}}
 		}
-	}
+	
 
 	static Game cs = new Game();
 	

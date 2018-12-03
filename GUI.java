@@ -10,13 +10,16 @@ public class GUI {
 public GUI()
 {
 	try {
-		//UI=ImageIO.read(new File("U:\\Documents\\GitHub\\TopDownSurvival\\assets\\ui.png"));
-		UI=ImageIO.read(new File("C:\\Users\\Daniel\\Documents\\GitHub\\TopDownSurvival\\assets\\ui.png"));
+		UI=ImageIO.read(new File("U:\\Documents\\GitHub\\TopDownSurvival\\assets\\ui.png"));
+		
 		
 	} catch (IOException e) {
-	
-	}
-}
+	try {
+		UI=ImageIO.read(new File("C:\\Documents\\GitHub\\TopDownSurvival\\assets\\ui.png"));
+		
+	}catch(IOException h) {}
+	}}
+
 public void paint(Graphics2D g)
 {
 	g.drawImage(UI,0,0, null);

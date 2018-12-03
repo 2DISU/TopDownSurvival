@@ -17,12 +17,18 @@ public class Player {
 	AffineTransform At= new AffineTransform();
 	public Player() {
 	
-		try {
+	
 			//img = ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
-			img = ImageIO.read(new File("C:/Users/Daniel/Documents/GitHub/TopDownSurvival/assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
-		} catch (IOException e) {
-			System.out.println("No Image");
-		}
+			try {
+				img=ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
+				
+				
+			} catch (IOException e) {
+			try {
+				img=ImageIO.read(new File("C:/Documents/GitHub/TopDownSurvival/assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
+				
+			}catch(IOException h) {}
+			}
 		
 		
 	}
