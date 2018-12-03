@@ -47,16 +47,24 @@ public class Game extends JPanel {
 	public static Game cs = new Game();
 	public int dashCooldown;
 	public BufferedImage img = null;
+	public BufferedImage[] exp = new BufferedImage[16];
 	public static long 	 BombDroppedTime;
 	public static long elapsedTime;
 	Timer bombTimer = new Timer();
 	public static boolean bombActive = false;
 	public static int bombX;
 	public static int bombY;
+	boolean ended;
+	int k=15;
+	int t=0;
 	public Game()
 	{
 		try {
 			img = ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/sans.png"));
+			exp[0]=null;
+			for (int i=1;i<=exp.length-1;i++) {
+				exp[i]=ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/Exp Anime/exp_"+i+".png"));
+			}
 			//img = ImageIO.read(new File("C:/Users/Daniel/Documents/GitHub/TopDownSurvival/assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
 		} catch (IOException e) {
 			System.out.println("No Image");
@@ -197,19 +205,36 @@ public class Game extends JPanel {
 	public void paint(Graphics g) {
 		
 		if (elapsedTime >1*1000)//1 number of seconds 
+			{t++;
 			bombActive = false;
-		
+			if (t==1)
+			ended = false;
+			
+			}
 		Graphics2D G = (Graphics2D) g;
 		G.setColor(new Color(53, 72, 104));
 		G.fillRect(0, 0, 1920, 1080);
 		//g.drawImage(img,1920/2,0,null);
 		Back.paint(G);
-		if (bombActive) 
+		if (bombActive) {
 			bomb.paint(G, bombX, bombY);
+		}
+		if (k==0)
+		{
+			ended=true;
+			k=15;
+			
+		}
+		if (!ended&& elapsedTime<2000)
+		{	
+			g.drawImage(exp[k],bombX,bombY,null);
+			k--;
+		}
+		
 		player.paint(G);
 		
 		ui.paint(G);
-
+		
 	}
 
 }

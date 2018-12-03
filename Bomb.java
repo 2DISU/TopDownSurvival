@@ -29,10 +29,7 @@ public class Bomb {
 	public void paint(Graphics2D g,int bombX,int bombY) {
 
 			g.drawImage(bomb, bombX, bombY, null);
-			for (int i=1;i<=exp.length-1;i++)
-			{
-				g.drawImage(exp[i],bombX,bombY,null);
-			}
+			
 	}
 
 }
