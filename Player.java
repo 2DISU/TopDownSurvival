@@ -1,4 +1,3 @@
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import javax.imageio.*;
@@ -17,12 +16,17 @@ public class Player {
 	AffineTransform At= new AffineTransform();
 	public Player() {
 	
-		try {
-			img = ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
-			//img = ImageIO.read(new File("C:/Users/Daniel/Documents/GitHub/TopDownSurvival/assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
-		} catch (IOException e) {
-			System.out.println("No Image");
-		}
+			try {
+				img=ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
+				
+				
+			} catch (IOException e) {
+			try {
+				img=ImageIO.read(new File("C:/Documents/GitHub/TopDownSurvival/assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
+				
+			}catch(IOException h) {}
+			}
+
 		
 		
 	}
@@ -35,9 +39,9 @@ public class Player {
 		y+=ya;
 		mX=MouseInfo.getPointerInfo().getLocation().x;
 		mY=MouseInfo.getPointerInfo().getLocation().y;
-		float xD = mX-x;
-		float yD = mY-y;
-		double rAngle = Math.toDegrees(Math.atan2(xD,yD));
+	//	float xD = mX-x;
+		//float yD = mY-y;
+		//double rAngle = Math.toDegrees(Math.atan2(xD,yD));
 		
 		At.rotate(rAngle,x+l/2,y+l/2);
 		//At.setToTranslation(x,y);
