@@ -1,4 +1,3 @@
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import javax.imageio.*;
@@ -40,9 +39,9 @@ public class Player {
 		y+=ya;
 		mX=MouseInfo.getPointerInfo().getLocation().x;
 		mY=MouseInfo.getPointerInfo().getLocation().y;
-		float xD = mX-x;
-		float yD = mY-y;
-		double rAngle = Math.toDegrees(Math.atan2(xD,yD));
+	//	float xD = mX-x;
+		//float yD = mY-y;
+		//double rAngle = Math.toDegrees(Math.atan2(xD,yD));
 		
 		//At.rotate(rAngle,x+l/2,y+l/2);
 		At.setToTranslation(x,y);

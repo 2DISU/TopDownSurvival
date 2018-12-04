@@ -1,4 +1,3 @@
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -20,7 +19,7 @@ public class Bomb {
 			}
 		} catch (IOException e) {
 		try {
-			img=ImageIO.read(new File("C:\\Documents\\GitHub\\TopDownSurvival\\assets\\bomb.png"));
+			bomb=ImageIO.read(new File("C:\\Documents\\GitHub\\TopDownSurvival\\assets\\bomb.png"));
 			
 		}catch(IOException h) {}}
 		}
