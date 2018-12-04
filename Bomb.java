@@ -12,17 +12,19 @@ public class Bomb {
 	Game C1;
 
 	public Bomb() {
+
 	try {
 			bomb = ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/bomb.png"));
 			for (int i=1;i<=exp.length-1;i++) {
 				exp[i]=ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/Exp Anime/exp_"+i+".png"));
 			}
-		//img = ImageIO.read(new File("C:/Users/Daniel/Documents/GitHub/TopDownSurvival/assets/bomb.png"));
-		
 		} catch (IOException e) {
-			System.out.println("No Image");
+		try {
+			img=ImageIO.read(new File("C:\\Documents\\GitHub\\TopDownSurvival\\assets\\bomb.png"));
+			
+		}catch(IOException h) {}}
 		}
-	}
+	
 
 	static Game cs = new Game();
 	
