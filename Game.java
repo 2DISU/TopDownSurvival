@@ -25,16 +25,12 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.MouseInfo;
-import java.awt.Point;
-import java.time.Duration;
-
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import java.util.Date;
 import java.util.Timer;
+@SuppressWarnings("serial")
 public class Game extends JPanel {
 
 	public static Color Black = new Color(10, 10, 10);
@@ -96,8 +92,8 @@ public class Game extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
 				if (SwingUtilities.isRightMouseButton(e))
-				{	player.x =  e.getXOnScreen()-player.l /2 ;
-					player.y = e.getYOnScreen()-player.l/2 ;}
+				{	Player.x =  e.getXOnScreen()-Player.l /2 ;
+					Player.y = e.getYOnScreen()-Player.l/2 ;}
 			}
 
 			@Override
@@ -111,8 +107,8 @@ public class Game extends JPanel {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				if (SwingUtilities.isRightMouseButton(e))
-				{	player.x =  e.getXOnScreen()-player.l /2 ;
-					player.y = e.getYOnScreen()-player.l/2 ;}
+				{	Player.x =  e.getXOnScreen()-Player.l /2 ;
+					Player.y = e.getYOnScreen()-Player.l/2 ;}
 			}
 
 			@Override
@@ -128,25 +124,25 @@ public class Game extends JPanel {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_S) {
-					if (player.ya <= 0) {
-						player.ya += 3;
+					if (Player.ya <= 0) {
+						Player.ya += 3;
 					}
 				}
 				if (e.getKeyCode() == KeyEvent.VK_W) {
-					if (player.ya >= 0) {
-						player.ya += -3;
+					if (Player.ya >= 0) {
+						Player.ya += -3;
 					}
 				}
 
 				if (e.getKeyCode() == KeyEvent.VK_D) {
-					if (player.xa <= 0) {
-						player.xa += 3;
+					if (Player.xa <= 0) {
+						Player.xa += 3;
 					}
 				}
 
 				if (e.getKeyCode() == KeyEvent.VK_A) {
-					if (player.xa >= 0) {
-						player.xa += -3;
+					if (Player.xa >= 0) {
+						Player.xa += -3;
 					}
 				}
 
@@ -154,8 +150,8 @@ public class Game extends JPanel {
 					 BombDroppedTime = System.currentTimeMillis();
 					 elapsedTime = 0;
 					bombActive = true;
-					bombX = player.x;
-					bombY = player.y;
+					bombX = Player.x;
+					bombY = Player.y;
 				}
 
 				if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
@@ -164,29 +160,29 @@ public class Game extends JPanel {
 
 			public void keyReleased(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_S) {
-					if (player.ya >= 0) {
-						player.ya -= 3;
+					if (Player.ya >= 0) {
+						Player.ya -= 3;
 					}
 				}
 				if (e.getKeyCode() == KeyEvent.VK_W) {
-					if (player.ya <= 0) {
-						player.ya -= -3;
+					if (Player.ya <= 0) {
+						Player.ya -= -3;
 					}
 				}
 
 				if (e.getKeyCode() == KeyEvent.VK_D) {
-					if (player.xa >= 0) {
+					if (Player.xa >= 0) {
 
-						player.xa -= 3;
+						Player.xa -= 3;
 					}
 				}
 
 				if (e.getKeyCode() == KeyEvent.VK_A) {
-					if (player.xa <= 0) {
-						player.xa -= -3;}
+					if (Player.xa <= 0) {
+						Player.xa -= -3;}
 				}
 				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-					Beam.velocity = -2;
+					
 				}
 			}
 		});
@@ -214,7 +210,7 @@ public class Game extends JPanel {
 		Graphics2D G = (Graphics2D) g;
 		G.setColor(new Color(53, 72, 104));
 		G.fillRect(0, 0, 1920, 1080);
-		//g.drawImage(img,1920/2,0,null);
+		g.drawImage(img,1920/2,0,null);
 		Back.paint(G);
 		if (bombActive) {
 			bomb.paint(G, bombX, bombY);
