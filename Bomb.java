@@ -20,7 +20,7 @@ public class Bomb {
 			}
 		} catch (IOException e) {
 		try {
-			img=ImageIO.read(new File("C:\\Documents\\GitHub\\TopDownSurvival\\assets\\bomb.png"));
+			bomb=ImageIO.read(new File("C:\\Documents\\GitHub\\TopDownSurvival\\assets\\bomb.png"));
 			
 		}catch(IOException h) {}}
 		}
