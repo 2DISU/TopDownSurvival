@@ -8,7 +8,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import javax.swing.JPanel;
 
-public class Player extends JPanel implements MouseMotionListener {
+public class Player extends JPanel implements MouseMotionListener{
 
 	
 	Game C1;
@@ -18,7 +18,7 @@ public class Player extends JPanel implements MouseMotionListener {
 	public int mX,mY; 
 	
 	
-	public double rAngle;
+	public static double rAngle;
 	AffineTransform At= new AffineTransform();
 	public Player() {
 	
@@ -34,19 +34,11 @@ public class Player extends JPanel implements MouseMotionListener {
 			}
 			addMouseMotionListener(this);
 	}
+	public static void getAngle(double A)
+	{
+		A=rAngle;
+	}
 	
-	public void mouseDragged(MouseEvent e)
-    {
-    }
-    @Override
-    public void mouseMoved(MouseEvent e)
-    {
-        double xD = e.getX() - Player.x;
-        double yD = e.getY() - Player.y;
-        rAngle = Math.atan2(yD, xD);
-        repaint();
-    } 
-
 	public void paint(Graphics2D g) {
 		At.rotate(rAngle);
 		At.setToTranslation(x,y);

@@ -15,6 +15,7 @@
 //RANDOM BOSS EACH TIME, HEALTH BAR AT TOP/BOTTOM.
 
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -70,7 +71,7 @@ public class Game extends JPanel {
 	public static void main(String[] args) {
 		Cursor cursor = new Cursor(Cursor.CROSSHAIR_CURSOR);
 		 
-		JFrame frame = new JFrame("[Game]");
+		JFrame frame = new JFrame("Oink");
 		frame.setSize(1300, 980);
 		
 //		frame.setCursor(frame.getToolkit().createCustomCursor(
@@ -85,7 +86,20 @@ public class Game extends JPanel {
 		frame.setResizable(false);
 		frame.setCursor(cursor);
 		frame.repaint();
-		
+		frame.addMouseMotionListener(new MouseMotionListener() {
+			@Override
+			public void mouseDragged(MouseEvent e)
+		    {
+		    }
+		    @Override
+		    public void mouseMoved(MouseEvent e)
+		    {
+		        double xD = e.getX() - Player.x;
+		        double yD = e.getY() - Player.y;
+		        Player.getAngle(Math.atan2(yD, xD));
+		    } 
+
+		});
 		frame.addMouseListener(new MouseListener() {
 		
 			@Override
@@ -102,12 +116,12 @@ public class Game extends JPanel {
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-			}
+			} 
 
 			@Override
 			public void mousePressed(MouseEvent e) {
 				if (SwingUtilities.isRightMouseButton(e))
-				{	Player.x =  e.getXOnScreen()-Player.l /2 ;
+				{	Player.x = e.getXOnScreen()-Player.l /2 ;
 					Player.y = e.getYOnScreen()-Player.l/2 ;}
 			}
 
