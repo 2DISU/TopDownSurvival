@@ -112,8 +112,12 @@ public class Game extends JPanel {
 			}
 
 			@Override
-			public void mouseReleased(MouseEvent e) {
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
 			}
+
+		
 		});
 
 		frame.addKeyListener(new KeyListener() {
@@ -210,7 +214,7 @@ public class Game extends JPanel {
 		Graphics2D G = (Graphics2D) g;
 		G.setColor(new Color(53, 72, 104));
 		G.fillRect(0, 0, 1920, 1080);
-		g.drawImage(img,1920/2,0,null);
+		
 		Back.paint(G);
 		if (bombActive) {
 			bomb.paint(G, bombX, bombY);

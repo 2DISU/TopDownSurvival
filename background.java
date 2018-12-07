@@ -17,11 +17,7 @@ public class background {
 
 			/*for (int i = 1; i <= tile.length - 1; i++) {
 				tile[i] = ImageIO.read(new File("C:/Documents/GitHub/TopDownSurvival/assets/desert_top_down/images/Tile_" + i + ".png"));}
-			*/
-
-			for (int i = 1; i <= tile.length - 1; i++) {
-				tile[i] = ImageIO.read(new File("C:/Documents/GitHub/TopDownSurvival/assets/desert_top_down/images/Tile_" + i + ".png"));
-			}	
+			*/	
 
 			for (int k=1;k<=tile.length-1;k++) {
 			tile[k] = ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/desert_top_down/images/Tile_"+k+".png"));

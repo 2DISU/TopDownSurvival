@@ -4,7 +4,11 @@ import javax.imageio.*;
 import java.io.*;
 import java.awt.MouseInfo;
 import java.awt.geom.AffineTransform;
-public class Player {
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
+import javax.swing.JPanel;
+
+public class Player extends JPanel implements MouseMotionListener {
 
 	
 	Game C1;
@@ -12,7 +16,9 @@ public class Player {
 	public static int xa = 0, ya = 0;
 	public BufferedImage img = null;
 	public int mX,mY; 
-
+	
+	
+	public double rAngle;
 	AffineTransform At= new AffineTransform();
 	public Player() {
 	
@@ -26,29 +32,29 @@ public class Player {
 				
 			}catch(IOException h) {}
 			}
-
-		
-		
+			addMouseMotionListener(this);
 	}
 	
-	
+	public void mouseDragged(MouseEvent e)
+    {
+    }
+    @Override
+    public void mouseMoved(MouseEvent e)
+    {
+        double xD = e.getX() - Player.x;
+        double yD = e.getY() - Player.y;
+        rAngle = Math.atan2(yD, xD);
+        repaint();
+    } 
 
 	public void paint(Graphics2D g) {
-		
-		x+=xa;
-		y+=ya;
-		mX=MouseInfo.getPointerInfo().getLocation().x;
-		mY=MouseInfo.getPointerInfo().getLocation().y;
-		float xD = mX-x;
-		float yD = mY-y;
-		double rAngle = Math.toDegrees(Math.atan2(xD,yD));
-		
-		At.rotate(rAngle,x+l/2,y+l/2);
-		//At.setToTranslation(x,y);
-		//g.drawPolygon(new int[] {x+(l/2),mX, mX}, new int[] {y+(l/2), mY, y+(l/2)}, 3);
+		At.rotate(rAngle);
+		At.setToTranslation(x,y);
 		g.drawImage(img,At, null);
-		//g.fillOval(x, y, w, h);
+		
 
 	}
 
 }
+
+
