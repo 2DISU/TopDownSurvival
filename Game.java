@@ -31,50 +31,47 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import java.util.Timer;
-@SuppressWarnings("serial")
+
 public class Game extends JPanel {
 
 	public static Color Black = new Color(10, 10, 10);
 	public int x = 1920 / 2 - 10, y = 1080 / 2 - 9, w = 20, h = 20, xa = 1, ya = 1;
 	public static Player player = new Player();
 	public static boolean exist = true;
-	public background Back=new background();
+	public background Back = new background();
 	public GUI ui = new GUI();
 	public Bomb bomb = new Bomb();
 	public static Game cs = new Game();
 	public int dashCooldown;
 	public BufferedImage img = null;
 	public BufferedImage[] exp = new BufferedImage[16];
-	public static long 	 BombDroppedTime;
+	public static long BombDroppedTime;
 	public static long elapsedTime;
 	Timer bombTimer = new Timer();
 	public static boolean bombActive = false;
 	public static int bombX;
 	public static int bombY;
 	boolean ended;
-	int k=15;
-	int t=0;
-	public Game()
-	{
+	int k = 15;
+	int t = 0;
+
+	public Game() {
 		try {
-			img = ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/sans.png"));
-			exp[0]=null;
-			for (int i=1;i<=exp.length-1;i++) {
-				exp[i]=ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/Exp Anime/exp_"+i+".png"));
+			img = ImageIO.read(new File("assets/sans.png"));
+			exp[0] = null;
+			for (int i = 1; i <= exp.length - 1; i++) {
+				exp[i] = ImageIO
+						.read(new File("assets/Exp Anime/exp_" + i + ".png"));
 			}
-				} catch (IOException e) {
+		} catch (IOException e) {
 			System.out.println("No Image");
 		}
 	}
+
 	public static void main(String[] args) {
 		Cursor cursor = new Cursor(Cursor.CROSSHAIR_CURSOR);
 		JFrame frame = new JFrame("Oink");
-		frame.setSize(1300, 980);		
-//		frame.setCursor(frame.getToolkit().createCustomCursor(
-//	            new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(0, 0),
-//	            "null"));
-//		frame.setSize(1280, 990);
-
+		frame.setSize(1300, 980);
 		frame.setVisible(true);
 		frame.add(cs);
 		frame.setFocusable(true);
@@ -84,26 +81,26 @@ public class Game extends JPanel {
 		frame.repaint();
 		frame.addMouseMotionListener(new MouseMotionListener() {
 			@Override
-			public void mouseDragged(MouseEvent e)
-		    {
-		    }
-		    @Override
-		    public void mouseMoved(MouseEvent e)
-		    {
-		        double xD = e.getX() - Player.x;
-		        double yD = e.getY() - Player.y;
-		        Player.getAngle(Math.atan2(yD, xD));
-		    } 
+			public void mouseDragged(MouseEvent e) {
+			}
+
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				double xD = e.getX() - Player.x;
+				double yD = e.getY() - Player.y;
+				Player.getAngle(Math.atan2(yD, xD));
+			}
 
 		});
 		frame.addMouseListener(new MouseListener() {
-		
+
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
-				if (SwingUtilities.isRightMouseButton(e))
-				{	Player.x =  e.getXOnScreen()-Player.l /2 ;
-					Player.y = e.getYOnScreen()-Player.l/2 ;}
+				if (SwingUtilities.isRightMouseButton(e)) {
+					Player.x = e.getXOnScreen() - Player.l / 2;
+					Player.y = e.getYOnScreen() - Player.l / 2;
+				}
 			}
 
 			@Override
@@ -112,22 +109,22 @@ public class Game extends JPanel {
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-			} 
+			}
 
 			@Override
 			public void mousePressed(MouseEvent e) {
-				if (SwingUtilities.isRightMouseButton(e))
-				{	Player.x = e.getXOnScreen()-Player.l /2 ;
-					Player.y = e.getYOnScreen()-Player.l/2 ;}
+				if (SwingUtilities.isRightMouseButton(e)) {
+					Player.x = e.getXOnScreen() - Player.l / 2;
+					Player.y = e.getYOnScreen() - Player.l / 2;
+				}
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
-		
 		});
 
 		frame.addKeyListener(new KeyListener() {
@@ -161,8 +158,8 @@ public class Game extends JPanel {
 				}
 
 				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-					 BombDroppedTime = System.currentTimeMillis();
-					 elapsedTime = 0;
+					BombDroppedTime = System.currentTimeMillis();
+					elapsedTime = 0;
 					bombActive = true;
 					bombX = Player.x;
 					bombY = Player.y;
@@ -170,7 +167,8 @@ public class Game extends JPanel {
 
 				if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
 					System.exit(1);
-				}}
+				}
+			}
 
 			public void keyReleased(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_S) {
@@ -193,10 +191,11 @@ public class Game extends JPanel {
 
 				if (e.getKeyCode() == KeyEvent.VK_A) {
 					if (Player.xa <= 0) {
-						Player.xa -= -3;}
+						Player.xa -= -3;
+					}
 				}
 				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-					
+
 				}
 			}
 		});
@@ -213,38 +212,37 @@ public class Game extends JPanel {
 
 	@Override
 	public void paint(Graphics g) {
-		
-		if (elapsedTime >1*1000)//1 number of seconds 
-			{t++;
+
+		if (elapsedTime > 1 * 1000)// 1 number of seconds
+		{
+			t++;
 			bombActive = false;
-			if (t==1)
-			ended = false;
-			
-			}
+			if (t == 1)
+				ended = false;
+
+		}
 		Graphics2D G = (Graphics2D) g;
 		G.setColor(new Color(53, 72, 104));
 		G.fillRect(0, 0, 1920, 1080);
-		
+
 		Back.paint(G);
 		if (bombActive) {
 			bomb.paint(G, bombX, bombY);
 		}
-		if (k==0)
-		{
-			ended=true;
-			k=15;
-			
+		if (k == 0) {
+			ended = true;
+			k = 15;
+
 		}
-		if (!ended&& elapsedTime<2000)
-		{	
-			g.drawImage(exp[k],bombX,bombY,null);
+		if (!ended && elapsedTime < 2000) {
+			g.drawImage(exp[k], bombX, bombY, null);
 			k--;
 		}
-		
+
 		player.paint(G);
-		
+
 		ui.paint(G);
-		
+
 	}
 
 }
