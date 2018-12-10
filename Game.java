@@ -62,18 +62,14 @@ public class Game extends JPanel {
 			for (int i=1;i<=exp.length-1;i++) {
 				exp[i]=ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/Exp Anime/exp_"+i+".png"));
 			}
-			//img = ImageIO.read(new File("C:/Users/Daniel/Documents/GitHub/TopDownSurvival/assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
-		} catch (IOException e) {
+				} catch (IOException e) {
 			System.out.println("No Image");
 		}
-		
 	}
 	public static void main(String[] args) {
 		Cursor cursor = new Cursor(Cursor.CROSSHAIR_CURSOR);
-		 
 		JFrame frame = new JFrame("Oink");
-		frame.setSize(1300, 980);
-		
+		frame.setSize(1300, 980);		
 //		frame.setCursor(frame.getToolkit().createCustomCursor(
 //	            new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(0, 0),
 //	            "null"));
