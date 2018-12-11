@@ -22,30 +22,6 @@ public class background {
 	}
 
 	public void paint(Graphics2D g) {
-		// g.drawImage(tile[8],5*l+xOffset,2*l-yOffset,l,l, null);
-		// g.drawImage(tile[8],4*l+xOffset,2*l-yOffset,l,l, null);
-
-		/*
-		 * g.drawImage(tile[5],5*l+xOffset,2*l-yOffset,l,l, null);
-		 * g.drawImage(tile[5],4*l+xOffset,2*l-yOffset,l,l, null);
-		 * g.drawImage(tile[5],5*l+xOffset,3*l-yOffset,l,l, null);
-		 * g.drawImage(tile[5],4*l+xOffset,3*l-yOffset,l,l, null);
-		 * g.drawImage(tile[5],5*l+xOffset,4*l-yOffset,l,l, null);
-		 * g.drawImage(tile[5],4*l+xOffset,4*l-yOffset,l,l, null);
-		 */
-
-		/*
-		 * g.drawImage(tile[5],5*l+xOffset,0*l-yOffset,l,l, null);
-		 * g.drawImage(tile[5],4*l+xOffset,0*l-yOffset,l,l, null);
-		 * g.drawImage(tile[5],5*l+xOffset,1*l-yOffset,l,l, null);
-		 * g.drawImage(tile[5],4*l+xOffset,1*l-yOffset,l,l, null);
-		 * g.drawImage(tile[5],5*l+xOffset,2*l-yOffset,l,l, null);
-		 * g.drawImage(tile[5],4*l+xOffset,2*l-yOffset,l,l, null);
-		 * g.drawImage(tile[5],5*l+xOffset,-1*l-yOffset,l,l, null);
-		 * g.drawImage(tile[5],4*l+xOffset,-1*l-yOffset,l,l, null);
-		 */
-
-		// g.drawImage(tile[8],4*l+xOffset,(3*l+yOffset),l,l, null);
 		g.drawImage(tile[1], xOffset, 0 + yOffset, l, l, null);
 		g.drawImage(tile[4], xOffset, l + yOffset, l, l, null);
 		g.drawImage(tile[4], xOffset, 2 * l + yOffset, l, l, null);

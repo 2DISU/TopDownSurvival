@@ -54,6 +54,7 @@ public class Game extends JPanel {
 	boolean ended;
 	int k = 15;
 	int t = 0;
+	protected static double imageAngleRad;
 
 	public Game() {
 		try {
@@ -84,13 +85,14 @@ public class Game extends JPanel {
 			public void mouseDragged(MouseEvent e) {
 			}
 
-			@Override
-			public void mouseMoved(MouseEvent e) {
-				double xD = e.getX() - Player.x;
-				double yD = e.getY() - Player.y;
-				Player.getAngle(Math.atan2(yD, xD));
-			}
-
+			   @Override
+			    public void mouseMoved(MouseEvent e)
+			    {
+			        double dx = e.getX() - Player.x;
+			        double dy = e.getY() - Player.y;
+			        imageAngleRad = Math.atan2(dy, dx);
+			        System.out.println(imageAngleRad);
+			    }
 		});
 		frame.addMouseListener(new MouseListener() {
 
@@ -198,6 +200,7 @@ public class Game extends JPanel {
 
 				}
 			}
+	
 		});
 
 		while (true) {
@@ -205,7 +208,7 @@ public class Game extends JPanel {
 			frame.repaint();
 			try {
 				Thread.sleep(8);
-			} catch (InterruptedException e) {
+			} catch (InterruptedException hh) {
 			}
 		}
 	}
