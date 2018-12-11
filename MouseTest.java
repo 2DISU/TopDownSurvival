@@ -55,7 +55,7 @@ public class MouseTest {
 	        BufferedImage i = null;
 	        try
 	        {
-	        	i = ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
+	        	i = ImageIO.read(new File("assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
 	        }
 	        catch (IOException e)
 	        {

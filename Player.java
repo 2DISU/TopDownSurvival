@@ -16,19 +16,17 @@ public class Player extends JPanel implements MouseMotionListener{
 	public static int xa = 0, ya = 0;
 	public BufferedImage img = null;
 	public int mX,mY; 
-	
-	
 	public static double rAngle;
 	AffineTransform At= new AffineTransform();
 	public Player() {
 	
 			try {
-				img=ImageIO.read(new File("U:/Documents/GitHub/TopDownSurvival/assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
+				img=ImageIO.read(new File("assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
 				
 				
 			} catch (IOException e) {
 			try {
-				img=ImageIO.read(new File("C:/Documents/GitHub/TopDownSurvival/assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
+				img=ImageIO.read(new File("assets/Top_Down_Survivor/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_11.png"));
 				
 			}catch(IOException h) {}
 			}
@@ -46,7 +44,15 @@ public class Player extends JPanel implements MouseMotionListener{
 		
 
 	}
+	@Override
+	public void mouseDragged(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseMoved(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
-
-
