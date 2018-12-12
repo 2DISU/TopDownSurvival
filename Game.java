@@ -80,6 +80,20 @@ public class Game extends JPanel {
 		frame.setResizable(false);
 		frame.setCursor(cursor);
 		frame.repaint();
+		SwingUtilities.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					
+					frame.getContentPane().add(new ImageFollowingMousePanel());
+					frame.setLocationRelativeTo(null);
+					
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
 		frame.addMouseMotionListener(new MouseMotionListener() {
 			@Override
 			public void mouseDragged(MouseEvent e) {
@@ -212,6 +226,7 @@ public class Game extends JPanel {
 			}
 		}
 	}
+	
 
 	@Override
 	public void paint(Graphics g) {
@@ -222,7 +237,6 @@ public class Game extends JPanel {
 			bombActive = false;
 			if (t == 1)
 				ended = false;
-
 		}
 		Graphics2D G = (Graphics2D) g;
 		G.setColor(new Color(53, 72, 104));
@@ -243,7 +257,6 @@ public class Game extends JPanel {
 		}
 
 		player.paint(G);
-
 		ui.paint(G);
 
 	}
