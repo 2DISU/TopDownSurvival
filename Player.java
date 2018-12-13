@@ -11,35 +11,23 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import javax.swing.JPanel;
 
-public class Player extends JPanel {
+public class Player extends JPanel implements MouseMotionListener{
 
 	Game C1;
 	public static int l = 150, x = 0, y = 0;
 	public static int xa = 0, ya = 0;
-	public BufferedImage img = null;
+
 	public int mX, mY;
 	
 	
 	AffineTransform At = new AffineTransform();
-	double imageAngleRad;
-	private Point imagePosition = new Point(x, y);
+	double imageAngleRad=0;
+	private Point imagePosition = new Point(Player.x, Player.y);
+	private BufferedImage image;
+
+
 
 	public Player() {
-		
-	 
-	}
-
-	public void paint(Graphics2D g) {
-		 paintComponent(g);
-	}
-
-}
-class ImageFollowingMousePanel extends JPanel implements MouseMotionListener {
-	private final BufferedImage image;
-	private Point imagePosition = new Point(x, y);
-	private double imageAngleRad = 0;
-
-	public ImageFollowingMousePanel() throws IOException {
 		BufferedImage i = null;
 		try {
 			i = ImageIO.read(
@@ -49,22 +37,6 @@ class ImageFollowingMousePanel extends JPanel implements MouseMotionListener {
 		}
 		image = i;
 		addMouseMotionListener(this);
-	}
-
-	protected void paintComponent(Graphics gr) {
-		super.paintComponent(gr);
-		Graphics2D g = (Graphics2D) gr;
-		g.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-
-		int cx = image.getWidth() / 2;
-		int cy = image.getHeight() / 2;
-		AffineTransform oldAT = g.getTransform();
-		g.translate(cx + imagePosition.x, cy + imagePosition.y);
-		g.rotate(imageAngleRad);
-		g.translate(-cx, -cy);
-		g.drawImage(image, 0, 0, null);
-		g.setTransform(oldAT);
-
 	}
 
 	@Override
@@ -78,4 +50,22 @@ class ImageFollowingMousePanel extends JPanel implements MouseMotionListener {
 		imageAngleRad = Math.atan2(dy, dx);
 		repaint();
 	}
+
+	public void paint(Graphics gr) {
+		super.paint(gr);
+		Graphics2D g = (Graphics2D) gr;
+		g.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+
+		int cx = image.getWidth() / 2;
+		int cy = image.getHeight() / 2;
+		AffineTransform oldAT = g.getTransform();
+		g.translate(cx + imagePosition.x, cy + imagePosition.y);
+		g.rotate(imageAngleRad);
+		g.translate(-cx, -cy);
+		g.drawImage(image, 0, 0, null);
+
+		g.setTransform(oldAT);
+
+	}
+
 }
