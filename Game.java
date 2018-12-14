@@ -85,7 +85,7 @@ public class Game extends JPanel {
 			public void run() {
 				try {
 					
-					frame.getContentPane().add(new ImageFollowingMousePanel());
+					frame.getContentPane().add(new ImageFollowingMousePanel1());
 					frame.setLocationRelativeTo(null);
 					
 				} catch (IOException e) {

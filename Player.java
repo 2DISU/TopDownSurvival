@@ -34,12 +34,12 @@ public class Player extends JPanel {
 	}
 
 }
-class ImageFollowingMousePanel extends JPanel implements MouseMotionListener {
+class ImageFollowingMousePanel1 extends JPanel implements MouseMotionListener {
 	private final BufferedImage image;
 	private Point imagePosition = new Point(Player.x, Player.y);
 	private double imageAngleRad = 0;
 
-	public ImageFollowingMousePanel() throws IOException {
+	public ImageFollowingMousePanel1() throws IOException {
 		BufferedImage i = null;
 		try {
 			i = ImageIO.read(
