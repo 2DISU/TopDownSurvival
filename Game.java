@@ -71,7 +71,7 @@ public class Game extends JPanel {
 
 	public static void main(String[] args) {
 		Cursor cursor = new Cursor(Cursor.CROSSHAIR_CURSOR);
-		JFrame frame = new JFrame("");
+		JFrame frame = new JFrame("Oink");
 		frame.setSize(1300, 980);
 		frame.setVisible(true);
 		frame.add(cs);
@@ -83,8 +83,15 @@ public class Game extends JPanel {
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				frame.getContentPane().add(new Player());
-				frame.setLocationRelativeTo(null);
+				try {
+					
+					frame.getContentPane().add(new ImageFollowingMousePanel());
+					frame.setLocationRelativeTo(null);
+					
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 		frame.addMouseMotionListener(new MouseMotionListener() {
@@ -98,14 +105,14 @@ public class Game extends JPanel {
 			        double dx = e.getX() - Player.x;
 			        double dy = e.getY() - Player.y;
 			        imageAngleRad = Math.atan2(dy, dx);
-			      
+			        System.out.println(imageAngleRad);
 			    }
 		});
 		frame.addMouseListener(new MouseListener() {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				// 
+				// TODO Auto-generated method stub
 				if (SwingUtilities.isRightMouseButton(e)) {
 					Player.x = e.getXOnScreen() - Player.l / 2;
 					Player.y = e.getYOnScreen() - Player.l / 2;
@@ -130,7 +137,7 @@ public class Game extends JPanel {
 
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
-				
+				// TODO Auto-generated method stub
 
 			}
 
