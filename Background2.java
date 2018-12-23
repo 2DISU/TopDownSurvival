@@ -9,7 +9,7 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Background2 extends JComponent{
+public class Background2 extends JPanel{
 		public BufferedImage[] tile = new BufferedImage[18];
 		public int xOffset = -85;
 		public int yOffset = -50;
