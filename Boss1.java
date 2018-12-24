@@ -48,15 +48,15 @@ public class Boss1 extends JPanel{
 		repaint();
 	}
 
-public static void main(String[] args) {
-	JFrame f = new JFrame("Btest");
-	  Boss1 p = new Boss1();
-	  f.setSize(1300,980);
-	  f.setVisible(true);
-	  f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	  f.add(p);
-	  while (true) {
-		  p.repaint();
-	  }
-}
+//public static void main(String[] args) {
+//	JFrame f = new JFrame("Btest");
+//	  Boss1 p = new Boss1();
+//	  f.setSize(1300,980);
+//	  f.setVisible(true);
+//	  f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//	  f.add(p);
+//	  while (true) {
+//		  p.repaint();
+//	  }
+//}
 }
